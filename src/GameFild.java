@@ -14,8 +14,8 @@ public class GameFild extends JPanel implements ActionListener {
     private Image apple;
     private int aplleX;
     private int aplleY;
-    private int[] x = new int[ALL_DOTS];
-    private int[] y = new int[ALL_DOTS];
+    private final int[] x = new int[ALL_DOTS];
+    private final int[] y = new int[ALL_DOTS];
     private int dots;
     private Timer timer;
     private boolean left = false;
@@ -64,17 +64,15 @@ public class GameFild extends JPanel implements ActionListener {
             g.drawImage(apple, aplleX, aplleY, this);
             for (int i = 0; i < dots; i++) {
                 g.drawImage(dot, x[i], y[i], this);
-
-            }}
-            else {
-                String str = "GAME OVER";
-               // Font f = new Font("Arial",14,Font.BOLD);
-                g.setColor(Color.WHITE);
-               // g.setFont(f);
-                g.drawString(str,125,SIZE/2);
             }
+        } else {
+            String str = "GAME OVER";
+            // Font f = new Font("Arial",14,Font.BOLD);
+            g.setColor(Color.WHITE);
+            // g.setFont(f);
+            g.drawString(str, 125, SIZE / 2);
         }
-
+    }
 
     public void move() {
         for (int i = dots; i > 0; i--) {
@@ -109,7 +107,6 @@ public class GameFild extends JPanel implements ActionListener {
             if (i > 4 && x[0] == x[i] && y[0] == y[i]) {
                 inGame = false;
             }
-
         }
         if (x[0] > SIZE) {
             inGame = false;
@@ -132,8 +129,6 @@ public class GameFild extends JPanel implements ActionListener {
             checkCollisions();
             move();
         }
-
-
 
         repaint();
     }
@@ -165,6 +160,4 @@ public class GameFild extends JPanel implements ActionListener {
             }
         }
     }
-
 }
-
